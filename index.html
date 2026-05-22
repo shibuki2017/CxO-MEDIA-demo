@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CxO MEDIA | 大企業とベンチャーをつなぐCo-Creation Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #0B2D6E;
+      --navy-mid:#1245A8;
+      --blue:    #1A5DC8;
+      --gold:    #C9A84C;
+      --white:   #FFFFFF;
+      --offwhite:#F4F6FA;
+      --gray:    #8899BB;
+      --text:    #1A1A2E;
+      --border:  #DDE4F0;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-serif {
+      font-family: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { display: block; width: 100%; object-fit: cover; }
+
+    /* ===== HEADER ===== */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px;
+      height: 64px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+    }
+
+    .logo {
+      display: flex; flex-direction: column; line-height: 1.1;
+    }
+    .logo-main {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 24px; font-weight: 600; letter-spacing: 0.12em;
+      color: var(--white);
+    }
+    .logo-main span { color: var(--gold); }
+    .logo-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 8px; color: var(--gray); letter-spacing: 0.2em;
+      text-transform: uppercase; font-weight: 400;
+    }
+
+    nav { display: flex; gap: 32px; align-items: center; }
+    nav a {
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      font-size: 12px; font-weight: 400; color: rgba(255,255,255,0.7);
+      letter-spacing: 0.08em; transition: color 0.2s;
+    }
+    nav a:hover { color: var(--white); }
+
+    .header-cta {
+      display: flex; gap: 12px; align-items: center;
+    }
+    .btn-login {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px; font-weight: 400; color: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 6px 18px; border-radius: 2px; letter-spacing: 0.06em;
+      transition: all 0.2s;
+    }
+    .btn-login:hover { background: rgba(255,255,255,0.1); color: #fff; }
+    .btn-register {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px; font-weight: 500; letter-spacing: 0.06em;
+      background: var(--gold); color: var(--navy);
+      padding: 8px 20px; border-radius: 2px;
+      transition: opacity 0.2s;
+    }
+    .btn-register:hover { opacity: 0.85; }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: var(--navy);
+      display: grid; grid-template-columns: 1fr 1fr;
+      min-height: 520px;
+    }
+
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 60px 56px;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 10px; font-weight: 500; letter-spacing: 0.22em;
+      color: var(--gold); text-transform: uppercase; margin-bottom: 20px;
+    }
+    .hero-tag::before {
+      content: ''; display: block;
+      width: 28px; height: 2px; background: var(--gold);
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 46px; font-weight: 500; line-height: 1.2;
+      color: var(--white); margin-bottom: 20px;
+      letter-spacing: 0.01em;
+    }
+    .hero-title em {
+      font-style: normal; color: var(--gold);
+    }
+    .hero-desc {
+      font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.6);
+      line-height: 2; margin-bottom: 36px; max-width: 420px;
+      letter-spacing: 0.04em;
+    }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--gold); color: var(--navy);
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      font-size: 13px; font-weight: 500; letter-spacing: 0.06em;
+      padding: 14px 28px; border-radius: 2px;
+      transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.88; }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid rgba(255,255,255,0.35); color: var(--white);
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      font-size: 13px; font-weight: 400; letter-spacing: 0.06em;
+      padding: 14px 28px; border-radius: 2px;
+      transition: all 0.2s;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.08); }
+
+    .hero-right {
+      position: relative; overflow: hidden;
+    }
+    .hero-video-card {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, #0B2D6E 0%, #1A3A7A 50%, #0D1F4A 100%);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 40px;
+    }
+    .hero-featured-img {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=900&q=80') center/cover;
+      opacity: 0.18;
+    }
+    .hero-video-meta {
+      position: relative;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .hero-category-tag {
+      width: fit-content;
+      background: var(--gold); color: var(--navy);
+      font-size: 10px; font-weight: 800; letter-spacing: 0.1em;
+      padding: 4px 10px; border-radius: 2px;
+      text-transform: uppercase;
+    }
+    .hero-video-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 26px; font-weight: 500; color: var(--white);
+      line-height: 1.35; letter-spacing: 0.02em;
+    }
+    .hero-video-guest {
+      font-size: 13px; color: rgba(255,255,255,0.6);
+    }
+    .hero-play-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(255,255,255,0.12);
+      border: 1.5px solid rgba(255,255,255,0.3);
+      color: var(--white); font-size: 13px; font-weight: 600;
+      padding: 10px 20px; border-radius: 4px; width: fit-content;
+      backdrop-filter: blur(4px);
+      transition: background 0.2s;
+    }
+    .hero-play-btn:hover { background: rgba(255,255,255,0.2); }
+    .play-icon {
+      width: 0; height: 0;
+      border-top: 7px solid transparent;
+      border-bottom: 7px solid transparent;
+      border-left: 12px solid var(--gold);
+    }
+
+    /* ===== TICKER ===== */
+    .ticker {
+      background: var(--offwhite);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center;
+      padding: 12px 40px; gap: 24px;
+    }
+    .ticker-label {
+      background: var(--navy); color: var(--white);
+      font-size: 10px; font-weight: 800; letter-spacing: 0.1em;
+      padding: 4px 12px; border-radius: 2px; white-space: nowrap;
+      text-transform: uppercase;
+    }
+    .ticker-items {
+      display: flex; gap: 32px; overflow: hidden;
+    }
+    .ticker-item {
+      font-size: 13px; color: var(--text); white-space: nowrap;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .ticker-item::before {
+      content: ''; display: block;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--gold);
+    }
+
+    /* ===== SECTION COMMON ===== */
+    section { padding: 72px 40px; }
+
+    .section-header {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 36px;
+    }
+    .section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px; font-weight: 500; color: var(--blue);
+      letter-spacing: 0.22em; text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 32px; font-weight: 500; color: var(--navy);
+      letter-spacing: 0.02em;
+    }
+    .section-link {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px; color: var(--blue); font-weight: 400;
+      letter-spacing: 0.08em;
+      display: flex; align-items: center; gap: 6px;
+      transition: gap 0.2s;
+    }
+    .section-link:hover { gap: 10px; }
+    .section-link::after { content: '→'; }
+
+    /* ===== EDITORIAL CARDS (新着コンテンツ) ===== */
+    .ec-carousel-wrap {
+      position: relative;
+    }
+    .ec-carousel-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      display: flex; justify-content: space-between;
+      width: calc(100% + 56px); left: -28px;
+      pointer-events: none; z-index: 10;
+    }
+    .ec-nav-btn {
+      pointer-events: all;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--navy); border: 1px solid rgba(255,255,255,0.15);
+      color: white; font-size: 18px; line-height: 1;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      transition: background 0.2s, transform 0.15s;
+      user-select: none;
+    }
+    .ec-nav-btn:hover { background: #1A3A7A; transform: scale(1.08); }
+    .ec-nav-btn:active { transform: scale(0.95); }
+
+    .ec-grid {
+      display: flex;
+      gap: 20px;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-bottom: 4px;
+    }
+    .ec-grid::-webkit-scrollbar { display: none; }
+
+    .ec-card {
+      background: #0E1420;
+      border-radius: 6px; overflow: hidden;
+      display: grid; grid-template-rows: 1fr auto;
+      width: 400px; flex-shrink: 0;
+      scroll-snap-align: start;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .ec-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+    }
+
+    /* inner layout: text left / photo right */
+    .ec-card-inner {
+      display: grid;
+      grid-template-columns: 1fr 150px;
+      position: relative;
+    }
+
+    /* photo area */
+    .ec-photo {
+      position: relative; overflow: hidden;
+    }
+    .ec-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top center;
+      filter: grayscale(30%) brightness(0.75);
+      display: block;
+    }
+    .ec-photo-fade {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, #0E1420 0%, transparent 40%);
+    }
+
+    /* text content */
+    .ec-content {
+      padding: 22px 0 18px 22px;
+      display: flex; flex-direction: column; justify-content: space-between;
+      position: relative; z-index: 1;
+    }
+
+    .ec-top { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+
+    .ec-series-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px; font-weight: 500; letter-spacing: 0.22em;
+      color: rgba(255,255,255,0.45); text-transform: uppercase;
+    }
+    .ec-series-line {
+      flex: 1; height: 1px;
+      background: linear-gradient(to right, rgba(201,168,76,0.5), transparent);
+    }
+
+    .ec-vol {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px; color: var(--gold);
+      letter-spacing: 0.1em; margin-bottom: 8px;
+    }
+    .ec-vol span { font-size: 18px; font-weight: 700; margin-left: 4px; }
+
+    .ec-company {
+      font-size: 11px; color: rgba(255,255,255,0.45);
+      letter-spacing: 0.06em; margin-bottom: 4px;
+    }
+    .ec-role {
+      font-size: 11px; color: rgba(255,255,255,0.35);
+      letter-spacing: 0.04em; margin-bottom: 12px;
+    }
+
+    .ec-title {
+      font-size: 15px; font-weight: 700; color: #fff;
+      line-height: 1.65; letter-spacing: 0.02em;
+      margin-bottom: 12px;
+    }
+    .ec-title em {
+      font-style: normal;
+      background: linear-gradient(120deg, rgba(201,168,76,0.25) 0%, transparent 100%);
+      padding: 0 2px;
+    }
+
+    /* footer bar */
+    .ec-footer {
+      padding: 10px 22px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      display: flex; align-items: center; gap: 8px;
+      flex-wrap: wrap;
+    }
+    .ec-tag {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px; font-weight: 500; letter-spacing: 0.08em;
+      padding: 4px 12px; border-radius: 20px;
+    }
+    .ec-tag-date  { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.6); }
+    .ec-tag-type  { background: rgba(201,168,76,0.15); color: var(--gold); border: 1px solid rgba(201,168,76,0.35); }
+    .ec-tag-badge { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.4); }
+
+    .ec-duration {
+      margin-left: auto;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px; color: rgba(255,255,255,0.3);
+      letter-spacing: 0.06em;
+    }
+
+    /* moderator badge */
+    .ec-moderator {
+      display: flex; align-items: center; gap: 8px;
+      margin-top: auto;
+    }
+    .ec-mod-avatar {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      border: 1.5px solid rgba(201,168,76,0.5);
+      overflow: hidden; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; color: rgba(255,255,255,0.4);
+    }
+    .ec-mod-info { display: flex; flex-direction: column; }
+    .ec-mod-role { font-size: 10px; color: rgba(255,255,255,0.3); letter-spacing: 0.04em; }
+    .ec-mod-name { font-size: 12px; color: rgba(255,255,255,0.65); font-weight: 500; }
+
+    /* ===== CATEGORY ROW SECTIONS ===== */
+    .cat-section {
+      padding: 48px 40px 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    .cat-section:last-of-type { border-bottom: none; }
+
+    .cat-header {
+      display: flex; align-items: baseline; justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .cat-title-wrap { display: flex; align-items: baseline; gap: 14px; }
+    .cat-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 22px; font-weight: 600; color: var(--navy);
+      letter-spacing: 0.02em;
+    }
+    .cat-title-en {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px; font-weight: 500; color: var(--gray);
+      letter-spacing: 0.2em; text-transform: uppercase;
+    }
+    .cat-link {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px; color: var(--blue); font-weight: 400;
+      letter-spacing: 0.08em;
+      display: flex; align-items: center; gap: 5px;
+      transition: gap 0.2s;
+    }
+    .cat-link:hover { gap: 9px; }
+    .cat-link::after { content: '→'; }
+
+    /* Row of compact cards */
+    .cat-row {
+      display: flex; gap: 16px;
+      overflow-x: scroll; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    }
+    .cat-row::-webkit-scrollbar { display: none; }
+
+    /* Compact card */
+    .rc {
+      flex-shrink: 0; width: 272px;
+      scroll-snap-align: start;
+      border-radius: 6px; overflow: hidden;
+      background: #0E1420;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .rc:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+    }
+
+    /* Thumbnail with overlay title (PIVOT style) */
+    .rc-thumb {
+      position: relative; height: 153px; overflow: hidden;
+    }
+    .rc-thumb img {
+      width: 100%; height: 100%; object-fit: cover; object-position: top;
+      display: block;
+      filter: brightness(0.7) grayscale(20%);
+      transition: transform 0.3s;
+    }
+    .rc:hover .rc-thumb img { transform: scale(1.04); }
+
+    .rc-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(14,20,32,0.92) 0%, rgba(14,20,32,0.3) 55%, transparent 100%);
+      padding: 10px 12px;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .rc-badge {
+      font-family: 'Inter', sans-serif;
+      align-self: flex-start;
+      font-size: 9px; font-weight: 600; letter-spacing: 0.12em;
+      padding: 3px 8px; border-radius: 2px; text-transform: uppercase;
+    }
+    .rc-badge-webinar   { background: var(--gold); color: var(--navy); }
+    .rc-badge-interview { background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+    .rc-badge-column    { background: var(--blue); color: #fff; }
+    .rc-badge-report    { background: #2A8A5A; color: #fff; }
+
+    .rc-overlay-title {
+      font-size: 14px; font-weight: 700; color: #fff;
+      line-height: 1.5; letter-spacing: 0.01em;
+    }
+
+    .rc-duration {
+      position: absolute; bottom: 8px; right: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px; color: #fff; font-weight: 500;
+      background: rgba(0,0,0,0.65); padding: 2px 7px; border-radius: 3px;
+    }
+
+    /* Card footer */
+    .rc-body {
+      padding: 10px 14px 12px;
+    }
+    .rc-guest {
+      font-size: 12px; color: rgba(255,255,255,0.5);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .rc-meta {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px; color: rgba(255,255,255,0.25);
+      margin-top: 4px; letter-spacing: 0.06em;
+    }
+
+    /* ===== LEGACY CARDS (おすすめ section) ===== */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .card-grid.col3 { grid-template-columns: repeat(3, 1fr); }
+    .card-grid.col2 { grid-template-columns: repeat(2, 1fr); }
+
+    .content-card {
+      border-radius: 6px; overflow: hidden;
+      border: 1px solid var(--border);
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+    .content-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(11,45,110,0.1);
+    }
+    .card-thumb {
+      height: 180px;
+      background: linear-gradient(135deg, #0B2D6E, #1A5DC8);
+      position: relative; overflow: hidden;
+    }
+    .card-thumb-overlay {
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,0.15);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .card-play {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      border: 2px solid rgba(255,255,255,0.5);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .card-play-icon {
+      width: 0; height: 0;
+      border-top: 7px solid transparent;
+      border-bottom: 7px solid transparent;
+      border-left: 11px solid white;
+      margin-left: 3px;
+    }
+    .card-duration {
+      position: absolute; bottom: 8px; right: 10px;
+      font-size: 11px; color: white; font-weight: 600;
+      background: rgba(0,0,0,0.6);
+      padding: 2px 8px; border-radius: 3px;
+    }
+    .card-type-badge {
+      position: absolute; top: 10px; left: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 9px; font-weight: 600; letter-spacing: 0.12em;
+      padding: 3px 8px; border-radius: 2px; text-transform: uppercase;
+    }
+    .badge-webinar  { background: var(--gold); color: var(--navy); }
+    .badge-interview{ background: rgba(11,45,110,0.85); color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+    .badge-column   { background: var(--blue); color: #fff; }
+    .badge-report   { background: #2A8A5A; color: #fff; }
+
+    .card-body { padding: 16px 18px 20px; }
+    .card-category {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px; color: var(--blue); font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px;
+    }
+    .card-title {
+      font-size: 14px; font-weight: 500; line-height: 1.65;
+      color: var(--text); margin-bottom: 10px;
+    }
+    .card-guest {
+      font-size: 12px; color: var(--gray);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .card-guest::before {
+      content: ''; display: block; flex-shrink: 0;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: var(--border);
+    }
+
+    /* ===== WEBINAR CTA ===== */
+    .webinar-cta {
+      background: var(--navy);
+      padding: 72px 40px;
+    }
+    .webinar-cta-inner {
+      max-width: 960px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr auto;
+      align-items: center; gap: 48px;
+    }
+    .webinar-cta-tag {
+      font-size: 11px; font-weight: 700; color: var(--gold);
+      letter-spacing: 0.14em; text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .webinar-cta-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 34px; font-weight: 500; color: var(--white);
+      line-height: 1.3; margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .webinar-cta-desc {
+      font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.8;
+    }
+    .webinar-cta-info {
+      display: flex; flex-direction: column; gap: 16px; align-items: flex-start;
+    }
+    .webinar-date {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 6px; padding: 20px 28px;
+      color: var(--white);
+    }
+    .webinar-date-label {
+      font-size: 10px; color: var(--gold); font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 6px;
+    }
+    .webinar-date-value {
+      font-size: 24px; font-weight: 800;
+    }
+    .webinar-date-time {
+      font-size: 13px; color: rgba(255,255,255,0.6); margin-top: 4px;
+    }
+
+    /* ===== CATEGORIES ===== */
+    .categories-section {
+      background: var(--offwhite);
+    }
+    .category-tabs {
+      display: flex; gap: 0; margin-bottom: 40px;
+      border-bottom: 2px solid var(--border);
+    }
+    .category-tab {
+      padding: 14px 28px; font-size: 14px; font-weight: 600;
+      color: var(--gray); cursor: pointer; border-bottom: 3px solid transparent;
+      margin-bottom: -2px; transition: all 0.2s;
+    }
+    .category-tab.active { color: var(--navy); border-color: var(--navy); }
+    .category-tab:hover { color: var(--navy); }
+
+    /* ===== PILLAR CARDS ===== */
+    .pillars {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+      margin-top: 40px;
+    }
+    .pillar-card {
+      border-radius: 10px; overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--white);
+    }
+    .pillar-head {
+      padding: 32px 28px 24px;
+      background: var(--navy);
+      position: relative;
+    }
+    .pillar-head.blue  { background: linear-gradient(135deg, #0B2D6E, #1245A8); }
+    .pillar-head.mid   { background: linear-gradient(135deg, #1A3A7A, #2851A3); }
+    .pillar-head.light { background: linear-gradient(135deg, #243B6E, #1A5DC8); }
+    .pillar-step {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px; font-weight: 400; color: var(--gold);
+      letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 10px;
+    }
+    .pillar-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 24px; font-weight: 500; color: var(--white);
+      line-height: 1.3; letter-spacing: 0.03em;
+    }
+    .pillar-desc {
+      font-size: 12px; color: rgba(255,255,255,0.6);
+      margin-top: 10px; line-height: 1.7;
+    }
+    .pillar-body { padding: 24px 28px; }
+    .pillar-items { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .pillar-items li {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; color: var(--text);
+    }
+    .pillar-items li::before {
+      content: ''; display: block; flex-shrink: 0;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--blue);
+    }
+    .pillar-cta {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 700; color: var(--blue);
+      margin-top: 20px; padding-top: 20px;
+      border-top: 1px solid var(--border);
+      transition: gap 0.2s;
+    }
+    .pillar-cta:hover { gap: 10px; }
+    .pillar-cta::after { content: '→'; }
+
+    /* ===== ABOUT BAND ===== */
+    .about-band {
+      background: var(--navy);
+      padding: 56px 40px;
+    }
+    .about-band-inner {
+      max-width: 860px; margin: 0 auto; text-align: center;
+    }
+    .about-band-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px; font-weight: 500; color: var(--gold);
+      letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 16px;
+    }
+    .about-band-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 38px; font-weight: 500; color: var(--white);
+      line-height: 1.3; margin-bottom: 20px;
+      letter-spacing: 0.02em;
+    }
+    .about-band-title em { font-style: normal; color: var(--gold); }
+    .about-band-desc {
+      font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.9; margin-bottom: 36px;
+    }
+    .about-stats {
+      display: flex; justify-content: center; gap: 56px;
+    }
+    .stat-item { text-align: center; }
+    .stat-number {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 42px; font-weight: 500; color: var(--white); line-height: 1;
+      letter-spacing: -0.01em;
+    }
+    .stat-number span { font-size: 20px; }
+    .stat-label { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 6px; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #060F22;
+      padding: 56px 40px 32px;
+      color: rgba(255,255,255,0.5);
+    }
+    .footer-inner {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px; margin-bottom: 48px;
+    }
+    .footer-brand .logo-main { font-size: 20px; margin-bottom: 8px; }
+    .footer-brand p {
+      font-size: 12px; line-height: 1.8; margin-top: 12px;
+    }
+    .footer-col h4 {
+      font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.8);
+      letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col li a {
+      font-size: 13px; color: rgba(255,255,255,0.45);
+      transition: color 0.2s;
+    }
+    .footer-col li a:hover { color: rgba(255,255,255,0.85); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-bottom p { font-size: 12px; }
+    .footer-rgp {
+      font-size: 12px; color: rgba(255,255,255,0.3);
+    }
+    .footer-rgp a { color: rgba(255,255,255,0.4); transition: color 0.2s; }
+    .footer-rgp a:hover { color: rgba(255,255,255,0.7); }
+
+    /* ===== BG PHOTO SECTIONS ===== */
+    .card-thumb.photo1 {
+      background-image: linear-gradient(135deg, rgba(11,45,110,0.75), rgba(18,69,168,0.6)),
+        url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80');
+      background-size: cover; background-position: center;
+    }
+    .card-thumb.photo2 {
+      background-image: linear-gradient(135deg, rgba(26,58,122,0.7), rgba(40,81,163,0.6)),
+        url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&q=80');
+      background-size: cover; background-position: center;
+    }
+    .card-thumb.photo3 {
+      background-image: linear-gradient(135deg, rgba(13,31,74,0.75), rgba(11,45,110,0.65)),
+        url('https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80');
+      background-size: cover; background-position: center;
+    }
+    .card-thumb.photo4 {
+      background-image: linear-gradient(135deg, rgba(22,35,71,0.75), rgba(26,58,122,0.65)),
+        url('https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80');
+      background-size: cover; background-position: center;
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    <div class="logo-main">Cx<span>O</span> MEDIA</div>
+    <div class="logo-sub">by Re-grit Partners</div>
+  </div>
+  <nav>
+    <a href="#">ウェビナー</a>
+    <a href="#">インタビュー</a>
+    <a href="#">コラム</a>
+    <a href="#">起業家一覧</a>
+    <a href="#">大企業×変革</a>
+    <a href="#">RGP知見</a>
+  </nav>
+  <div class="header-cta">
+    <a href="#" class="btn-login">ログイン</a>
+    <a href="#" class="btn-register">無料登録</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Co-Creation Platform</div>
+    <h1 class="hero-title">
+      大企業とベンチャーを<br>
+      つなぐ<em>共創</em>の<br>
+      メディアプラットフォーム
+    </h1>
+    <p class="hero-desc">
+      起業家・大企業役員・コンサルティング知見を編集し、
+      新しいビジネスと共創を生み出すエコシステムを構築します。
+      RGPがハブとなり、変革の連鎖を起こす。
+    </p>
+    <div class="hero-actions">
+      <a href="#" class="btn-primary">
+        <span class="play-icon"></span>
+        最新ウェビナーを見る
+      </a>
+      <a href="#" class="btn-outline">登壇者一覧を見る</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-video-card">
+      <div class="hero-featured-img"></div>
+      <div class="hero-video-meta">
+        <span class="hero-category-tag">Next Webinar</span>
+        <div class="hero-video-title">
+          大企業の変革と<br>スタートアップの共創<br>──次の10年をどう作るか
+        </div>
+        <div class="hero-video-guest">田中 一郎 氏（元○○社 CDO）× 山田 太郎（株式会社XYZ CEO）</div>
+        <a href="#" class="hero-play-btn">
+          <span class="play-icon"></span>
+          申込はこちら
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <span class="ticker-label">NEW</span>
+  <div class="ticker-items">
+    <span class="ticker-item">【6/10開催】起業家ウェビナー #3「PMFをどう乗り越えたか」</span>
+    <span class="ticker-item">インタビュー公開：元Sony副社長が語る「大企業の変革論」</span>
+    <span class="ticker-item">コラム更新：CxO人材がベンチャーを選ぶ理由</span>
+  </div>
+</div>
+
+<!-- LATEST CONTENT -->
+<section>
+  <div class="section-header">
+    <div>
+      <div class="section-label">Latest Content</div>
+      <h2 class="section-title">新着コンテンツ</h2>
+    </div>
+    <a href="#" class="section-link">すべて見る</a>
+  </div>
+  <div class="ec-carousel-wrap">
+  <div class="ec-carousel-nav">
+    <button class="ec-nav-btn" onclick="scrollCarousel(-1)">&#8592;</button>
+    <button class="ec-nav-btn" onclick="scrollCarousel(1)">&#8594;</button>
+  </div>
+  <div class="ec-grid" id="ecCarousel">
+
+    <!-- Card 1 -->
+    <div class="ec-card">
+      <div class="ec-card-inner">
+        <div class="ec-content">
+          <div>
+            <div class="ec-top">
+              <span class="ec-series-label">起業家の発信 Series</span>
+              <span class="ec-series-line"></span>
+            </div>
+            <div class="ec-vol">Vol.<span>03</span></div>
+            <div class="ec-company">株式会社Alpha</div>
+            <div class="ec-role">代表取締役 CEO　佐藤 健一 氏</div>
+            <div class="ec-title">なぜあの会社は<br><em>"PMF"</em>を乗り越えられたのか<br>失敗から学んだプロダクト開発の本質</div>
+          </div>
+          <div class="ec-moderator">
+            <div class="ec-mod-avatar">M</div>
+            <div class="ec-mod-info">
+              <span class="ec-mod-role">モデレーター / Re-grit Partners</span>
+              <span class="ec-mod-name">田中 一郎</span>
+            </div>
+          </div>
+        </div>
+        <div class="ec-photo">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="">
+          <div class="ec-photo-fade"></div>
+        </div>
+      </div>
+      <div class="ec-footer">
+        <span class="ec-tag ec-tag-date">2026.06.10 [Tue] 19:00</span>
+        <span class="ec-tag ec-tag-type">WEBINAR</span>
+        <span class="ec-tag ec-tag-badge">質問OK</span>
+        <span class="ec-tag ec-tag-badge">アーカイブあり</span>
+        <span class="ec-duration">42:15</span>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="ec-card">
+      <div class="ec-card-inner">
+        <div class="ec-content">
+          <div>
+            <div class="ec-top">
+              <span class="ec-series-label">大手役員の発信 Series</span>
+              <span class="ec-series-line"></span>
+            </div>
+            <div class="ec-vol">Vol.<span>07</span></div>
+            <div class="ec-company">○○ホールディングス</div>
+            <div class="ec-role">取締役 CDO　鈴木 明子 氏</div>
+            <div class="ec-title">1,000億の新規事業を<br>立ち上げた<em>意思決定</em>プロセス<br>大企業変革の現場から</div>
+          </div>
+          <div class="ec-moderator">
+            <div class="ec-mod-avatar">M</div>
+            <div class="ec-mod-info">
+              <span class="ec-mod-role">モデレーター / Re-grit Partners</span>
+              <span class="ec-mod-name">山本 花子</span>
+            </div>
+          </div>
+        </div>
+        <div class="ec-photo">
+          <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&q=80" alt="">
+          <div class="ec-photo-fade"></div>
+        </div>
+      </div>
+      <div class="ec-footer">
+        <span class="ec-tag ec-tag-date">2026.05.22 [Fri] 18:00</span>
+        <span class="ec-tag ec-tag-type">INTERVIEW</span>
+        <span class="ec-tag ec-tag-badge">アーカイブあり</span>
+        <span class="ec-duration">35:08</span>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="ec-card">
+      <div class="ec-card-inner">
+        <div class="ec-content">
+          <div>
+            <div class="ec-top">
+              <span class="ec-series-label">RGP知見 Series</span>
+              <span class="ec-series-line"></span>
+            </div>
+            <div class="ec-vol">Vol.<span>12</span></div>
+            <div class="ec-company">Re-grit Partners</div>
+            <div class="ec-role">シニアコンサルタント　高橋 誠</div>
+            <div class="ec-title">大企業×ベンチャー<br><em>共創</em>の現場から<br>成功する接続の条件とは何か</div>
+          </div>
+          <div class="ec-moderator">
+            <div class="ec-mod-avatar">R</div>
+            <div class="ec-mod-info">
+              <span class="ec-mod-role">執筆 / RGP編集部</span>
+              <span class="ec-mod-name">Re-grit Partners</span>
+            </div>
+          </div>
+        </div>
+        <div class="ec-photo">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80" alt="">
+          <div class="ec-photo-fade"></div>
+        </div>
+      </div>
+      <div class="ec-footer">
+        <span class="ec-tag ec-tag-date">2026.05.18 [Mon]</span>
+        <span class="ec-tag ec-tag-type">COLUMN</span>
+        <span class="ec-tag ec-tag-badge">読了15分</span>
+        <span class="ec-duration">15 min read</span>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="ec-card">
+      <div class="ec-card-inner">
+        <div class="ec-content">
+          <div>
+            <div class="ec-top">
+              <span class="ec-series-label">起業家の発信 Series</span>
+              <span class="ec-series-line"></span>
+            </div>
+            <div class="ec-vol">Vol.<span>02</span></div>
+            <div class="ec-company">株式会社Beta</div>
+            <div class="ec-role">取締役 COO　中村 拓也 氏</div>
+            <div class="ec-title">組織を壊さずに変革する<br>スタートアップ<em>組織論</em>の<br>最前線を語ろう</div>
+          </div>
+          <div class="ec-moderator">
+            <div class="ec-mod-avatar">M</div>
+            <div class="ec-mod-info">
+              <span class="ec-mod-role">モデレーター / Re-grit Partners</span>
+              <span class="ec-mod-name">伊藤 雅樹</span>
+            </div>
+          </div>
+        </div>
+        <div class="ec-photo">
+          <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80" alt="">
+          <div class="ec-photo-fade"></div>
+        </div>
+      </div>
+      <div class="ec-footer">
+        <span class="ec-tag ec-tag-date">2026.05.12 [Tue] 20:00</span>
+        <span class="ec-tag ec-tag-type">WEBINAR</span>
+        <span class="ec-tag ec-tag-badge">質問OK</span>
+        <span class="ec-tag ec-tag-badge">一度限り</span>
+        <span class="ec-duration">58:44</span>
+      </div>
+    </div>
+
+  </div>
+  </div>
+</section>
+
+<!-- ABOUT BAND -->
+<div class="about-band">
+  <div class="about-band-inner">
+    <div class="about-band-label">About CxO MEDIA</div>
+    <h2 class="about-band-title">
+      "共創インフラ"として、<br>
+      <em>1,000人のCxO</em>を輩出する
+    </h2>
+    <p class="about-band-desc">
+      RGPがハブとなり、大企業の変革ニーズ・ベンチャーの成長力・実行支援を接続します。<br>
+      起業家の知見をコンテンツ化し、大企業の意思決定者とベンチャーをつなぐ<br>
+      日本初の"Co-Creation Media Platform"です。
+    </p>
+    <div class="about-stats">
+      <div class="stat-item">
+        <div class="stat-number">50<span>+</span></div>
+        <div class="stat-label">登壇起業家・CxO</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">120<span>+</span></div>
+        <div class="stat-label">コンテンツ数</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">300<span>+</span></div>
+        <div class="stat-label">大企業リード獲得数</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">15<span>件+</span></div>
+        <div class="stat-label">共創アライアンス成立</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORY ROWS -->
+<div style="background: var(--offwhite); padding: 8px 0 8px;">
+
+  <!-- 起業家 -->
+  <div class="cat-section">
+    <div class="cat-header">
+      <div class="cat-title-wrap">
+        <h2 class="cat-title">起業家</h2>
+        <span class="cat-title-en">Entrepreneurs</span>
+      </div>
+      <a href="#" class="cat-link">すべて見る</a>
+    </div>
+    <div class="cat-row">
+      <div class="rc">
+        <div class="rc-thumb">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=550&q=80" alt="">
+          <div class="rc-overlay">
+            <span class="rc-badge rc-badge-webinar">Webinar</span>
+            <div class="rc-overlay-title">PMFまでの3年間。<br>失敗から学んだプロダクト開発</div>
+          </div>
+          <span class="rc-duration">42:15</span>
+        </div>
+        <div class="rc-body">
+          <div class="rc-guest">佐藤 健一 CEO / 株式会社Alpha</div>
+          <div class="rc-meta">2026.06.10</div>
+        </div>
+      </div>
+      <div class="rc">
+        <div class="rc-thumb">
+          <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=550&q=80" alt="">
+          <div class="rc-overlay">
+            <span class="rc-badge rc-badge-webinar">Webinar</span>
+            <div class="rc-overlay-title">組織を壊さずに変革する。<br>スタートアップ組織論の最前線</div>
+          </div>
+          <span class="rc-duration">58:44</span>
+        </div>
+        <div class="rc-body">
+          <div class="rc-guest">中村 拓也 COO / 株式会社Beta</div>
+          <div class="rc-meta">2026.05.12</div>
+        </div>
+      </div>
+      <div class="rc">
+        <div class="rc-thumb">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=550&q=80" alt="">
+          <div class="rc-overlay">
+            <span class="rc-badge rc-badge-interview">Interview</span>
+            <div class="rc-overlay-title">資金調達2年間の全記録。<br>VCとの交渉から契約まで</div>
+          </div>
+          <span class="rc-duration">1:02:30</span>
+        </div>
+        <div class="rc-body">
+          <div class="rc-guest">田中 誠 CEO / Gamma株式会社</div>
+          <div class="rc-meta">2026.04.28</div>
+        </div>
+      </div>
+      <div class="rc">
+        <div class="rc-thumb">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=550&q=80" alt="">
+          <div class="rc-overlay">
+            <span class="rc-badge rc-badge-webinar">Webinar</span>
+            <div class="rc-overlay-title">なぜ私は大企業を辞めて<br>起業することを選んだのか</div>
+          </div>
+          <span class="rc-duration">37:22</span>
+        </div>
+        <div class="rc-body">
+          <div class="rc-guest">山田 太郎 CEO / Delta Inc.</div>
+          <div class="rc-meta">2026.04.10</div>
+        </div>
+      </div>
+      <div class="rc">
+        <div class="rc-thumb">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=550&q=80" alt="">
+          <div class="rc-overlay">
+            <span class="rc-badge rc-badge-interview">Interview</span>
+            <div class="rc-overlay-title">海外展開の実際。<br>グローバルPMFへの道</div>
+          </div>
+          <span class="rc-duration">44:08</span>
+        </div>
+        <div class="rc-body">
+          <div class="rc-guest">鈴木 健二 CBO / Epsilon Ltd.</div>
+          <div class="rc-meta">2026.03.25</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 大手企業 -->
+  <div class="cat-section">
+    <div class="cat-header">
+      <div class="cat-title-wrap">
+        <h2 class="cat-title">大手企業</h2>
+        <span class="cat-title-en">Corporate Leaders</span>
+      </div>
+      <a href="#" class="cat-link">すべて見る</a>
+    </div>
+    <div class="cat-row">
+      <div class="rc">
+        <div class="rc-thumb">
+          <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=550&q=80" alt="">
+          <div class="rc-overlay">
+            <span class="rc-badge rc-badge-interview">Interview</span>
+            <div class="rc-overlay-title">1,000億の新規事業を<br>立ち上げた意思決定プロセス</div>
+          </div>
+          <span class="rc-duration">35:08</span>
+        </div>
+        <div class="rc-body">
+          <div class="rc-guest">鈴木 明子 CDO / ○○ホールディングス</div>
+          <div class="rc-meta">2026.05.22</div>
+        </div>
+      </div>
+      <div class="rc">
+        <div class="rc-thumb">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=550&q=80" alt="">
+          <div class="rc-overlay">
+            <span class="rc-badge rc-badge-interview">Interview</span>
+            <div class="rc-overlay-title">なぜ大企業はイノベーションが<br>遅いのか。変革の処方箋</div>
+          </div>
+          <span class="rc-duration">28:55</span>
+        </div>
+        <div class="rc-body">
+          <div class="rc-guest">伊藤 雅樹 CXO / Delta Group</div>
+          <div class="rc-meta">2026.05.08</div>
+        </div>
+      </div>
+      <div class="rc">
+        <div class="rc-thumb">
+          <img src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=550&q=80" alt="">
+          <div class="rc-overlay">
+            <span class="rc-badge rc-badge-webinar">Webinar</span>
+            <div class="rc-overlay-title">大企業がスタートアップと<br>共創する際の本当の壁</div>
+          </div>
+          <span class="rc-duration">52:30</span>
+        </div>
+        <div class="rc-body">
+          <div class="rc-guest">高橋 信也 CDO / Zeta Holdings</div>
+          <div class="rc-meta">2026.04.20</div>
+        </div>
+      </div>
+      <div class="rc">
+        <div class="rc-thumb">
+          <img src="https://images.unsplash.com/photo-1559418843-c8b0f08f9588?w=550&q=80" alt="">
+          <div class="rc-overlay">
+            <span class="rc-badge rc-badge-interview">Interview</span>
+            <div class="rc-overlay-title">DX推進7年間の軌跡。<br>変革リーダーが語る本音</div>
+          </div>
+          <span class="rc-duration">39:17</span>
+        </div>
+        <div class="rc-body">
+          <div class="rc-guest">中野 久美子 CDXO / Eta Corp.</div>
+          <div class="rc-meta">2026.04.05</div>
+        </div>
+      </div>
+      <div class="rc">
+        <div class="rc-thumb">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=550&q=80" alt="">
+          <div class="rc-overlay">
+            <span class="rc-badge rc-badge-webinar">Webinar</span>
+            <div class="rc-overlay-title">新規事業を社内で<br>通す技術と組織設計</div>
+          </div>
+          <span class="rc-duration">46:55</span>
+        </div>
+        <div class="rc-body">
+          <div class="rc-guest">木村 賢一 執行役員 / Theta Group</div>
+          <div class="rc-meta">2026.03.18</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RGPインサイト -->
+  <div class="cat-section">
+    <div class="cat-header">
+      <div class="cat-title-wrap">
+        <h2 class="cat-title">RGPインサイト</h2>
+        <span class="cat-title-en">RGP Insights</span>
+      </div>
+      <a href="#" class="cat-link">すべて見る</a>
+    </div>
+    <div class="cat-row">
+      <div class="rc">
+        <div class="rc-thumb">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=550&q=80" alt="">
+          <div class="rc-overlay">
+            <span class="rc-badge rc-badge-report">Report</span>
+            <div class="rc-overlay-title">2026年 大企業×スタートアップ<br>共創トレンドレポート</div>
+          </div>
+          <span class="rc-duration">20 min</span>
+        </div>
+        <div class="rc-body">
+          <div class="rc-guest">Re-grit Partners リサーチチーム</div>
+          <div class="rc-meta">2026.05.18</div>
+        </div>
+      </div>
+      <div class="rc">
+        <div class="rc-thumb">
+          <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=550&q=80" alt="">
+          <div class="rc-overlay">
+            <span class="rc-badge rc-badge-column">Column</span>
+            <div class="rc-overlay-title">大企業×ベンチャー共創の現場から。<br>成功する接続の条件</div>
+          </div>
+          <span class="rc-duration">15 min</span>
+        </div>
+        <div class="rc-body">
+          <div class="rc-guest">Re-grit Partners 編集部</div>
+          <div class="rc-meta">2026.05.10</div>
+        </div>
+      </div>
+      <div class="rc">
+        <div class="rc-thumb">
+          <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=550&q=80" alt="">
+          <div class="rc-overlay">
+            <span class="rc-badge rc-badge-column">Column</span>
+            <div class="rc-overlay-title">CxO人材が<br>ベンチャーを選ぶ理由</div>
+          </div>
+          <span class="rc-duration">12 min</span>
+        </div>
+        <div class="rc-body">
+          <div class="rc-guest">Re-grit Partners 編集部</div>
+          <div class="rc-meta">2026.04.22</div>
+        </div>
+      </div>
+      <div class="rc">
+        <div class="rc-thumb">
+          <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=550&q=80" alt="">
+          <div class="rc-overlay">
+            <span class="rc-badge rc-badge-report">Report</span>
+            <div class="rc-overlay-title">共創アライアンス成功事例集<br>2025年度版</div>
+          </div>
+          <span class="rc-duration">30 min</span>
+        </div>
+        <div class="rc-body">
+          <div class="rc-guest">Re-grit Partners コンサルティング本部</div>
+          <div class="rc-meta">2026.04.01</div>
+        </div>
+      </div>
+      <div class="rc">
+        <div class="rc-thumb">
+          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=550&q=80" alt="">
+          <div class="rc-overlay">
+            <span class="rc-badge rc-badge-column">Column</span>
+            <div class="rc-overlay-title">変革人材の定義と<br>育成メソッドの最前線</div>
+          </div>
+          <span class="rc-duration">18 min</span>
+        </div>
+        <div class="rc-body">
+          <div class="rc-guest">Re-grit Partners シニアコンサルタント</div>
+          <div class="rc-meta">2026.03.14</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- WEBINAR CTA -->
+<div class="webinar-cta">
+  <div class="webinar-cta-inner">
+    <div>
+      <div class="webinar-cta-tag">Next Webinar</div>
+      <h2 class="webinar-cta-title">
+        次回ウェビナー：<br>
+        大企業の新規事業と<br>ベンチャーの共創実践
+      </h2>
+      <p class="webinar-cta-desc">
+        急成長スタートアップCEOと元大手企業CDOが対談。<br>
+        共創をどう仕組み化するか、実践の現場から語ります。<br>
+        参加無料・オンライン開催。申込者には録画も配信。
+      </p>
+    </div>
+    <div class="webinar-cta-info">
+      <div class="webinar-date">
+        <div class="webinar-date-label">開催日時</div>
+        <div class="webinar-date-value">2026.06.10</div>
+        <div class="webinar-date-time">19:00 – 20:30 (オンライン)</div>
+      </div>
+      <a href="#" class="btn-primary" style="width:100%; justify-content:center;">
+        無料で申し込む →
+      </a>
+      <a href="#" class="btn-outline" style="width:100%; justify-content:center;">
+        過去のウェビナーを見る
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo-main" style="color:white; font-size:22px; font-family:'Cormorant Garamond',Georgia,serif; font-weight:600; letter-spacing:0.12em;">Cx<span style="color:#C9A84C;">O</span> MEDIA</div>
+      <p>
+        大企業とベンチャーをつなぐCo-Creation Platform。<br>
+        Re-grit Partnersが運営する、共創インフラとしての<br>
+        メディアプラットフォームです。
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>コンテンツ</h4>
+      <ul>
+        <li><a href="#">ウェビナー</a></li>
+        <li><a href="#">インタビュー</a></li>
+        <li><a href="#">コラム</a></li>
+        <li><a href="#">レポート</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>About</h4>
+      <ul>
+        <li><a href="#">CxO MEDIAとは</a></li>
+        <li><a href="#">登壇者一覧</a></li>
+        <li><a href="#">Re-grit Partners</a></li>
+        <li><a href="#">お問い合わせ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>登壇・掲載</h4>
+      <ul>
+        <li><a href="#">起業家として登壇する</a></li>
+        <li><a href="#">大企業として参加する</a></li>
+        <li><a href="#">協賛・スポンサー</a></li>
+        <li><a href="#">メディア掲載依頼</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 CxO MEDIA. All rights reserved.</p>
+    <div class="footer-rgp">
+      Operated by <a href="#">Re-grit Partners Inc.</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function scrollCarousel(dir) {
+    const el = document.getElementById('ecCarousel');
+    el.scrollBy({ left: dir * 420, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
