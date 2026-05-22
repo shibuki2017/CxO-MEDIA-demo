@@ -801,6 +801,94 @@
         url('https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80');
       background-size: cover; background-position: center;
     }
+
+    /* ===== RESPONSIVE ===== */
+
+    @media (max-width: 900px) {
+      header { padding: 0 20px; }
+      nav { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-right { display: none; }
+      .hero-left { padding: 48px 28px; }
+      .hero-title { font-size: 34px; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .about-stats { gap: 32px; }
+      .webinar-cta-inner { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    @media (max-width: 640px) {
+      /* Header */
+      header { padding: 0 16px; height: 56px; }
+      .logo-main { font-size: 19px; }
+      .logo-sub { display: none; }
+      .btn-login { display: none; }
+      .btn-register { font-size: 11px; padding: 6px 14px; }
+
+      /* Hero */
+      .hero-left { padding: 36px 20px; }
+      .hero-tag { font-size: 9px; }
+      .hero-title { font-size: 28px; }
+      .hero-desc { font-size: 12px; margin-bottom: 28px; }
+      .btn-primary, .btn-outline { font-size: 12px; padding: 11px 18px; }
+
+      /* Ticker */
+      .ticker { padding: 10px 16px; gap: 10px; }
+      .ticker-item { font-size: 12px; }
+
+      /* Sections */
+      section { padding: 40px 16px; }
+      .section-title { font-size: 24px; }
+
+      /* EC Carousel */
+      .ec-carousel-nav { width: calc(100% + 28px); left: -14px; }
+      .ec-nav-btn { width: 36px; height: 36px; font-size: 14px; }
+      .ec-card { width: 86vw; }
+      .ec-card-inner { grid-template-columns: 1fr 90px; }
+      .ec-photo { width: 90px; }
+      .ec-content { padding: 14px 0 12px 14px; }
+      .ec-top { margin-bottom: 8px; }
+      .ec-vol { margin-bottom: 4px; }
+      .ec-vol span { font-size: 14px; }
+      .ec-company, .ec-role { font-size: 10px; margin-bottom: 2px; }
+      .ec-title { font-size: 12px; line-height: 1.55; margin-bottom: 8px; }
+      .ec-mod-name { font-size: 11px; }
+      .ec-mod-role { display: none; }
+      .ec-mod-avatar { width: 26px; height: 26px; font-size: 10px; }
+      .ec-footer { padding: 8px 14px; gap: 5px; flex-wrap: wrap; }
+      .ec-tag { font-size: 9px; padding: 3px 7px; }
+      .ec-duration { font-size: 10px; }
+
+      /* Category rows */
+      .cat-section { padding: 28px 16px; }
+      .cat-title { font-size: 18px; }
+      .rc { width: 66vw; }
+      .rc-thumb { height: 112px; }
+      .rc-overlay-title { font-size: 12px; }
+      .rc-body { padding: 8px 12px 10px; }
+      .rc-guest { font-size: 11px; }
+
+      /* About band */
+      .about-band { padding: 44px 20px; }
+      .about-band-title { font-size: 26px; }
+      .about-band-desc { font-size: 12px; }
+      .about-stats { flex-wrap: wrap; gap: 20px 36px; justify-content: center; }
+      .stat-number { font-size: 32px; }
+      .stat-label { font-size: 11px; }
+
+      /* Webinar CTA */
+      .webinar-cta { padding: 44px 20px; }
+      .webinar-cta-title { font-size: 24px; }
+      .webinar-cta-desc { font-size: 13px; }
+      .webinar-date { padding: 16px 20px; }
+      .webinar-date-value { font-size: 20px; }
+      .webinar-cta-info { width: 100%; }
+
+      /* Footer */
+      footer { padding: 40px 20px 24px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+      .footer-col:not(:first-child) { display: none; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    }
   </style>
 </head>
 <body>
@@ -832,7 +920,7 @@
     <h1 class="hero-title">
       大企業とベンチャーを<br>
       つなぐ<em>共創</em>の<br>
-      メディアプラットフォーム
+      プラットフォーム
     </h1>
     <p class="hero-desc">
       起業家・大企業役員・コンサルティング知見を編集し、
@@ -1048,7 +1136,7 @@
     <p class="about-band-desc">
       RGPがハブとなり、大企業の変革ニーズ・ベンチャーの成長力・実行支援を接続します。<br>
       起業家の知見をコンテンツ化し、大企業の意思決定者とベンチャーをつなぐ<br>
-      日本初の"Co-Creation Media Platform"です。
+      日本初の"Co-Creation Platform"です。
     </p>
     <div class="about-stats">
       <div class="stat-item">
